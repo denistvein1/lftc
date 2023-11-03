@@ -7,6 +7,6 @@ class SymbolTable:
     def __str__(self):
         return f"Symbol Table :\n{str(self.__ht)}"
     
-    def getPosition(self, key):
+    def put(self, key):
         pos = self.__ht.get(key)
         return pos if pos else self.__ht.put(key)
