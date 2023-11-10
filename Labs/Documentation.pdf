@@ -1,0 +1,25 @@
+https://github.com/denistvein1/lftc
+
+A hash table is a practical and efficient data structure for managing symbols in a
+compiler's symbol table, offering fast and reliable lookup, insertion, and scalability
+to accommodate the needs of various programming languages and source code complexities.
+
+The SymTable has as attributes the size and the HashTable.
+It also has a method "put" that adds a key in the SymTable
+if the key doesn't exist and returns the position of the key,
+if the key already exists, it only returns the position.
+
+The Data Structure used for PIF is the Python build in list
+that stores a tuple consisting of: token name and position/-1.
+
+The regex used for the identifiers is: “\b[a-zA-Z][a-zA-Z0-9]*\b”.
+It matches any sequences that start with a letter (any case)
+and is followed by letters or digits of indefinite length. The \b is used to
+make sure that only strings of this pattern are matched, and not just if parts of
+it match the regex. The * expresses the fact that  elements in the list can appear
+multiple times or not at all.
+
+The regex used for the integer constants is: “\b[-]?[1-9][0-9]*\b|\b0\b”. It matches 0
+or any sequence of single digits (1-9) or multiple digits that must start with a
+non zero digit. The sign is optional and only - is used. The \b is used to make
+sure that only strings of this pattern are matched, and not just if parts of it match the regex.
