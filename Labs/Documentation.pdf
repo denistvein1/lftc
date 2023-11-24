@@ -23,3 +23,6 @@ The regex used for the integer constants is: “\b[-]?[1-9][0-9]*\b|\b0\b”. It
 or any sequence of single digits (1-9) or multiple digits that must start with a
 non zero digit. The sign is optional and only - is used. The \b is used to make
 sure that only strings of this pattern are matched, and not just if parts of it match the regex.
+
+The data structure used for the transition function is a dictionary that
+has tuples of (state, input symbol) as keys and the next state as the value.
