@@ -26,3 +26,42 @@ sure that only strings of this pattern are matched, and not just if parts of it 
 
 The data structure used for the transition function is a dictionary that
 has tuples of (state, input symbol) as keys and the next state as the value.
+
+<state> ::= a | b | c
+<digit> ::= 0 | 1
+<tuple> ::= (<state>, <digit>)
+<rule1> ::= <state>
+<rule2> ::= <state> = <state>
+<grammar> ::= <rule1> | <rule2>
+
+<rule1> ::= a
+          | b
+          | c
+
+<rule2> ::= (a, 0) = b
+          | (b, 1) = c
+          | (c, 1) = c
+
+The Grammar class represents a context-free grammar(CFG) and provides methods to work with
+grammatical rules and productions.
+
+Fields:
+-nonterminals -> a list to store nonterminal symbols in the grammar
+-terminals -> list to store terminal symbols in the grammar
+-productions -> dictionary where keys are nonterminals and values are lists of production rules
+associated with each nonterminal
+-start -> starting symbol for the grammar
+Methods:
+
+__init__(self, path: str) -> The constructor method that initializes the grammar using a JSON
+file specified by the path. The JSON file is expected to contain keys 'NonTerminals',
+'Terminals', 'Productions' and 'Start'.
+    -Reads nonterminals, terminals, productions and start symbol from the JSON file.
+    -Prints nonterminals, terminals, start symbol and calls getProductions() to print the
+        productions.
+
+isCFG(self) -> bool: Checks if the grammar adheres to the definition of a Context-Free Grammar
+(CFG). Verifies that the starting symbol is in the set of productions and that all left-hand
+and right-hand sides of productions meet CFG criteria.
+
+getProductions(self) -> None: Prints all productions in a readable format.
